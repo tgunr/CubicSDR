@@ -1,0 +1,8 @@
+#!/bin/bash
+if [[ ! -d build ]] ; then
+   mkdir build
+fi
+
+pushd build
+cmake .. -DwxWidgets_CONFIG_EXECUTABLE=/Users/davec/Dev/wxWidgets-staticlib/bin/wx-config -DCMAKE_BUILD_TYPE=Release -DBUNDLE_APP=1 -DCPACK_BINARY_DRAGNDROP=1 -DSoapySDR_DIR=/usr/local/Cellar/soapysdr/0.6.1/share/cmake/SoapySDR
+popd
