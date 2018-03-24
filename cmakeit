@@ -4,5 +4,5 @@ if [[ ! -d build ]] ; then
 fi
 
 pushd build
-cmake .. -DwxWidgets_CONFIG_EXECUTABLE=/Users/davec/Dev/wxWidgets-staticlib/bin/wx-config -DCMAKE_BUILD_TYPE=Release -DBUNDLE_APP=1 -DCPACK_BINARY_DRAGNDROP=1 -DSoapySDR_DIR=/usr/local/Cellar/soapysdr/0.6.1/share/cmake/SoapySDR
+cmake -G Xcode -Wno-dev .. -DwxWidgets_CONFIG_EXECUTABLE=/Users/davec/Dev/wxWidgets-staticlib/bin/wx-config -DCMAKE_BUILD_TYPE=Release -DBUNDLE_APP=1 -DCPACK_BINARY_DRAGNDROP=1 -DSoapySDR_DIR=/usr/local/share/cmake/SoapySDR/
 popd
