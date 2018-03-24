@@ -2713,16 +2713,20 @@ int AppFrame::OnGlobalKeyDown(wxKeyEvent &event) {
     
     int snap = wxGetApp().getFrequencySnap();
     
-    if (event.ControlDown()) {
-        return 1;
-    }
-    
-    if (event.ShiftDown()) {
-        if (snap != 1) {
-            snap /= 2;
+    if (event.HasAnyModifiers()) {
+        if (event.ControlDown()) {
+            wxGetApp().setFrequencySnap(100);
+        }
+        if (event.AltDown()) {
+            wxGetApp().setFrequencySnap(1000);
+        }
+        if (event.RawControlDown()) {
+            wxGetApp().setFrequencySnap(10000);
+        }
+        if (event.ShiftDown()) {
+            wxGetApp().setFrequencySnap(100000);
         }
     }
-    
     #ifdef wxHAS_RAW_KEY_CODES
     switch (event.GetRawKeyCode()) {
         case 30:
