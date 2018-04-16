@@ -2676,15 +2676,17 @@ FrequencyDialog::FrequencyDialogTarget AppFrame::getFrequencyDialogTarget() {
 
 void AppFrame::gkNudgeLeft(DemodulatorInstancePtr demod, int snap) {
     if (demod) {
-        demod->setFrequency(demod->getFrequency()-snap);
-        demod->updateLabel(demod->getFrequency());
+        long long freq = demod->getFrequency();
+        demod->setFrequency(freq - snap);
+        demod->updateLabel(freq);
     }
 }
 
 void AppFrame::gkNudgeRight(DemodulatorInstancePtr demod, int snap) {
     if (demod) {
-        demod->setFrequency(demod->getFrequency()+snap);
-        demod->updateLabel(demod->getFrequency());
+        long long freq = demod->getFrequency();
+        demod->setFrequency(freq + snap);
+        demod->updateLabel(freq);
     }
 }
 
